@@ -41,4 +41,14 @@ The two-way arrow represents a bidirectional trust between the two forests, mean
 We can also see multiple child domains under each root domain. In this example, we can see that the root domain trusts each of the child domains, but the child domains in forest A do not necessarily have trusts established with the child domains in forest B.
 
 ## AD Terminology
-d
+* **Object*** - Can be ANY resource within an Active Directory environment such as OUs, printers, users, domain controllers, etc.
+* ***Attributes*** - Every object in Active Directory has an associated set of attributes for example a computer object contains attributes such as the hostname and DNS name...
+* ***Schema*** - Defines types of objects that can exist and their attributes
+* ***Domain*** - Is a logical group of objects such as computers, users, OUs, groups, etc.
+* ***Tree*** - A collection of AD domains
+* ***Forest*** - A collection of AD trees
+* ***Leaf*** - Found at the end of the subtree hierarchy and do not contain other objects .
+* ***Distinguished Name (DN)*** - Describes the ful path to an object in AD
+* ***Relative Distinguished Name (RDN)*** - Is a single component of the DN that identifies object as unique
+
+* ***FSMO Roles*** - In the early days of AD, if you had multiple DCs in an environment, they would fight over which DC gets to make changes, Misscrosoft then introduced a model in which a single "master" DC could apply changes to the domain while the others merely fulfilled authentication requests. This was a flawed design because if the master DC went down, no changes could be made to the environment until it was restored. Microsoft separated the various responsibilities that a DC can have into Flexible Single Master Operation (FSMO) roles. These give Domain Controllers (DC) the ability to continue authenticating users and granting permissions without interruption (authorization and authentication). There are five FMSO roles: Schema Master and Domain Naming Master (one of each per forest), Relative ID (RID) Master (one per domain), Primary Domain Controller (PDC) Emulator (one per domain), and Infrastructure Master (one per domain). All five roles are assigned to the first DC in the forest root domain in a new AD forest. Each time a new domain is added to a forest, only the RID Master, PDC Emulator, and Infrastructure Master roles are assigned to the new domain.
