@@ -37,5 +37,8 @@ An AD ***STRUCTURE*** may look as follow
 Here we could say that MICROSOFT.COM is the root domain and contains the subdomains (either child or tree root domains) UK.MICROSOFT.COM and US.MICROSOFT.COML as well as the other objects that make up a domain such as users, groups, computers, and more. 
 
 It is common to see multiple domains (or forests) linked together via trust relationships in organizations that perform a lot of acquisitions. It is often quicker and easier to create a trust relationship with another domain/forest than recreate all new users in the current domain.
+The two-way arrow represents a bidirectional trust between the two forests, meaning that users in INLANEFREIGHT.LOCAL can access resources in FREIGHTLOGISTICS.LOCAL and vice versa.
+We can also see multiple child domains under each root domain. In this example, we can see that the root domain trusts each of the child domains, but the child domains in forest A do not necessarily have trusts established with the child domains in forest B.
 
 ## AD Terminology
+d
